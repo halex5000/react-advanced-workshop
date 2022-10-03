@@ -14,7 +14,9 @@
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/icons-material": "^5.10.6",
+    "@mui/lab": "^5.0.0-alpha.102",
     "@mui/material": "^5.10.8",
+    "material-ui-popup-state": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
@@ -26,9 +28,9 @@
     "eslint-config-xo-react": "^0.27.0",
     "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-react-hooks": "^4.6.0",
+    "husky": "^8.0.0",
     "vite": "^3.1.0",
-    "xo": "^0.52.3",
-    "husky": "^8.0.0"
+    "xo": "^0.52.3"
   },
   "xo": {
     "extends": "xo-react",
