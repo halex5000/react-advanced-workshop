@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from 'react'; // eslint-disable-line unicorn/filename-case
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import {useTheme, ThemeProvider, createTheme} from '@mui/material/styles';
@@ -40,7 +40,7 @@ function MyApp() {
 }
 
 export default function ToggleColorMode() {
-	const [mode, setMode] = (React.useState < 'light') | ('dark' > 'light');
+	const [mode, setMode] = React.useState('light');
 	const colorMode = React.useMemo(
 		() => ({
 			toggleColorMode() {
