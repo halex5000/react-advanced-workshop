@@ -8,9 +8,13 @@ import LoginIcon from '@mui/icons-material/Login';
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
 import PropTypes from 'prop-types';
 import LoginPopover from './login-popover';
+/* TODO: import LaunchDarkly function to retrieve flag values */
 
 export default function TopToolBar({userName, setUserName}) {
 	const [anchorElement, setAnchorElement] = React.useState();
+
+	let login = false; /* TODO: replace this variable with the proper flag function */
+
 
 	const handleClick = (event) => {
 		setAnchorElement(event.currentTarget);
@@ -21,8 +25,8 @@ export default function TopToolBar({userName, setUserName}) {
 	};
 
 	return (
-		<AppBar position="sticky" color="inherit">
-			<Toolbar color="inherit">
+		<AppBar position="sticky" color="inherit"> 
+			{ login ? <Toolbar color="inherit">
 				<IconButton
 					size="large"
 					edge="start"
@@ -40,7 +44,7 @@ export default function TopToolBar({userName, setUserName}) {
 				>
 					LaunchDarkly
 				</Typography>
-
+				
 				<IconButton
 					size="large"
 					edge="start"
@@ -52,12 +56,13 @@ export default function TopToolBar({userName, setUserName}) {
 					{userName ? <SentimentSatisfiedAltIcon /> : <LoginIcon />}
 				</IconButton>
 				<Typography>{userName}</Typography>
-			</Toolbar>
+				</Toolbar> : null }
+			
 			<LoginPopover
 				anchorElement={anchorElement}
 				login={setUserName}
 				handleClose={handleClose}
-			/>
+			/> 
 		</AppBar>
 	);
 }
