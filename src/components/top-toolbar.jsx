@@ -13,7 +13,7 @@ import LoginPopover from './login-popover';
 export default function TopToolBar({userName, setUserName}) {
 	const [anchorElement, setAnchorElement] = React.useState();
 
-	let login = false; /* TODO: replace this variable with the proper flag function */
+	let tool_bar = false; /* TODO: replace this variable with the proper flag function */
 
 
 	const handleClick = (event) => {
@@ -26,7 +26,7 @@ export default function TopToolBar({userName, setUserName}) {
 
 	return (
 		<AppBar position="sticky" color="inherit"> 
-			{ login ? <Toolbar color="inherit">
+			{ tool_bar ? <Toolbar color="inherit">
 				<IconButton
 					size="large"
 					edge="start"

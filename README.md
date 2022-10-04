@@ -26,10 +26,10 @@ Before we dive into the code, we need to get our LaunchDarkly account configured
 Once you've completed these steps, we can move to the next. 
 
 ## Step 2: Initialize the React SDK 
-Now that you've got LaunchDarkly set up, we need to initialize it in order to start using our flags. Go to the `App.jsx` file and add in the necessary code. We've given you some `TODO` fields with some hints. 
+Now that you've got LaunchDarkly set up, we need to initialize it in order to start using our flags. Go to the `main.jsx` file and add in the necessary code. We've given you some `TODO` fields with some hints. 
 
 ## Step 3: Enable the login feature
-To get started with flags, we're going to add a simple `boolean` example. In the `components` folder, we have a file called `top-toolbar.jsx` this is for the top nav bar of our demo application. Inside this file, we have disabled the login functionality. You're task is to enable this feature by creating a flag called `enable_login` in LaunchDarkly. 
+To get started with flags, we're going to add a simple `boolean` example. In the `components` folder, we have a file called `top-toolbar.jsx` this is for the top nav bar of our demo application. Inside this file, we have disabled the tool bar so it doesn't show on our application in its current state. You're task is to enable this feature by creating a flag called `tool_bar` in LaunchDarkly and enabling it. For this step you will need to update the file to retrieve flag values from LaunchDarkly first.  
 
 ## Step 4: Add targeting rules
 Now that we have set up the login feature, we can have some fun with targeting flags. One of the major benefits of LaunchDarkly is that you can control which groups or users have access to certain features or can see variations of your application. To demonstrate this we're going to have you complete two tasks:
