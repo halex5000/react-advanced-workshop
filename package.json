@@ -20,7 +20,9 @@
     "launchdarkly-react-client-sdk": "^2.27.0",
     "material-ui-popup-state": "^4.1.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.0",
+    "toaster": "^0.1.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",

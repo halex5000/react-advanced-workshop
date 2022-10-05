@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState } from 'react';
 import Popover from '@mui/material/Popover';
 import PopupState, {bindPopover} from 'material-ui-popup-state';
 import {ButtonGroup} from '@mui/material';
@@ -8,12 +9,16 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import PropTypes from 'prop-types';
 
+
+
 export default function LoginPopover({anchorElement, handleClose, login}) {
+
 	const [temporaryUserName, setTemporaryUserName] = React.useState();
 
 	const updateUsername = (event) => {
 		setTemporaryUserName(event.target.value);
 	};
+
 
 	return (
 		<PopupState variant="popover" popupId="login-popover">
@@ -61,8 +66,8 @@ export default function LoginPopover({anchorElement, handleClose, login}) {
 								variant="contained"
 								color="primary"
 								onClick={() => {
-									console.log('temporary user name:', temporaryUserName);
-									login(temporaryUserName);
+									login(temporaryUserName)
+									console.log('the user name is:', temporaryUserName);
 									handleClose();
 								}}
 							>
