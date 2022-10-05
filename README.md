@@ -31,7 +31,7 @@ Now that you've got LaunchDarkly set up, we need to initialize it in order to st
 ## Step 2: Enable the login feature
 To get started with flags, we're going to add a simple `boolean` example. In the `components` folder, we have a file called `top-toolbar.jsx` this is for the top nav bar of our demo application. Inside this file, we have disabled the tool bar so it doesn't show on our application in its current state. You're task is to enable this feature by creating a flag called `toolBar` in LaunchDarkly and enabling it. For this step you will need to update the file to retrieve flag values from LaunchDarkly first.  
 
-## Step 3: Add targeting rules
+## Step 3: Add targeting rules <-- YOU ARE HERE
 Now that we have added our tool bar feature, we can have some fun with targeting flags. One of the major benefits of LaunchDarkly is that you can control which groups or users have access to certain features or can see variations of your application. To demonstrate this we're going to have you complete the following tasks:
 * Create a segment in LaunchDarkly called `dev-team` and add a couple of users to this segment
 * Add 3 users to that segment
