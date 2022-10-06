@@ -7,6 +7,7 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import ListSubheader from '@mui/material/ListSubheader';
+import {useFlags} from 'launchdarkly-react-client-sdk';
 
 //Don't forget to import the right LaunchDarkly function
 
@@ -94,9 +95,9 @@ const itemData = [
 
 export default function ImageMasonry() {
 	
-	// TODO: you need to replace these default values with the correct flags.
-	let newGallery = false;
-	let columns = 5;
+	const {newGallery, columns } = useFlags();
+	console.log(newGallery);
+	console.log(columns);
 
 	if (newGallery) {
 	return (

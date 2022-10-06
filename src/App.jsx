@@ -11,8 +11,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import {Container} from '@mui/material';
 import TopToolBar from './components/top-toolbar';
 import ImageMasonry from './components/image-masonry';
-//don't forget to import your function
-
+import {useLDClient} from 'launchdarkly-react-client-sdk';
 
 
 
@@ -60,9 +59,15 @@ function Toggler() {
 
 function MyApp() {	
 	const [userName, setUserName] = React.useState();
-	
-	//TODO: add code here in order to pass the username values to LaunchDarkly, did you remember to import the useLdClient function? 
-	
+	const ldClient = useLDClient();
+
+	useEffect(() => {
+		if (userName) {
+			ldClient.identify({key: userName});
+			console.log(userName);
+		}
+	}, [userName])
+		
 	return (
 		<>
 			<TopToolBar userName={userName} setUserName={setUserName} />
@@ -71,7 +76,7 @@ function MyApp() {
 					width: '1',
 				}}
 			>
-				<ImageMasonry />
+			<ImageMasonry />
 			</Container>
 			<Container>
 			</Container>
