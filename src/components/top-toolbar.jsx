@@ -55,9 +55,8 @@ function ListItemLink(props) {
 export default function TopToolBar({userName, setUserName}) {
 	const [anchorElement, setAnchorElement] = React.useState();
 
-	const {toolBar, /*I think there's a flag missing here */} = useFlags();
+	const {toolBar, todoList} = useFlags();
 
-	let todoList = false; //You'll want to remove this once you add the flag. 
 
 
 	const handleClick = (event) => {

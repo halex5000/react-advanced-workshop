@@ -6,7 +6,6 @@ import { Tasks } from "./to-do-list";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import errorPage from '../assets/404-Page.png';
 
-
 const theme = createTheme({
     palette: {
         mode: 'dark'

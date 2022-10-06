@@ -10,8 +10,9 @@ export const Todo = () => {
         e.preventDefault();
         try {
             const body = { description };
-            const response = await fetch("/api", {
+            const response = await fetch("http://localhost:5000/api", {
               method: "POST",
+              mode: "cors",
               headers: { "Content-Type": "application/json"},
               body: JSON.stringify(body)
               

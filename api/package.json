@@ -1,0 +1,17 @@
+{
+  "main": "index.js",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.17.1",
+    "install": "^0.13.0",
+    "launchdarkly-node-server-sdk": "^6.4.3",
+    "nodemon": "2.0.7",
+    "pg": "^8.6.0",
+    "reload": "^3.2.0"
+  },
+  "scripts": {
+    "dev": "nodemon",
+    "start": "node index.js"
+  }
+}

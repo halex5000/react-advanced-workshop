@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  db: 
+    container_name: postgres
+    image: pcmccarron/ld-postgres:v1
+    ports:
+      - '5432:5432'
+    environment:
+      PG_USER: postgres
+      PG_PASSWORD: postgres_password
+      PG_DATABASE: demo
+    volumes:
+      - ./pgdata:/var/lib/postgres/data
+  api:
+    container_name: api
+    image: pcmccarron/ld-api:v1
+    ports: 
+      - '5000:5000'
+    environment: 
+      EXTERNAL_PORT: 5000
+      PG_USER: postgres
+      PG_PASSWORD: postgres_password
+      PG_DATABASE: demo
+    depends_on:
+      - db
+
+
+        
