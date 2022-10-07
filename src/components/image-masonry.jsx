@@ -9,8 +9,6 @@ import ImageListItemBar from '@mui/material/ImageListItemBar';
 import ListSubheader from '@mui/material/ListSubheader';
 import {useFlags} from 'launchdarkly-react-client-sdk';
 
-//Don't forget to import the right LaunchDarkly function
-
 const Label = styled(Paper)(({theme}) => ({
 	backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
 	...theme.typography.body2,
