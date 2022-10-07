@@ -46,11 +46,22 @@ Up to this point we've only done `boolean` flags, but LaunchDarkly offers many t
 ## Step 4: Expand your application <-- YOU ARE HERE
 We've just scratched the surface about what feature flags can do for your application. To get a greater understanding, we need to add more functionality to this application. We're going to add another `boolean` flag here to test out some new code. In the component file, you'll see a few new files `todo-list.jsx`, `to-do-input.jsx` and `to-do-page.jsx`. This is going to enable a new To Do list in our application and add it to the navigation menu to appear when the flag is enabled. In order to complete this task, you'll need to create a new flag called `todoList` in your LaunchDarkly account and add import it into the `top-toolbar.jsx` file. For an extra step, add a targeting rule so only your `dev` users can see it! 
 
-## Step 5: Getting familiar with server side flags
+## Step 5: Getting familiar with server side flags 
 You likely noticed that when you enabled the new To Do list, that there wasn't a To Do list when you clicked on the link... This To-Do list relies on an API call to a postgres database for inputting our locations. To finish this final step, you have a couple of different options:
-* In this branch we've added an API folder. This folder contains a docker compose file that will spin up the node server and create a postgres database where we'll store our to-do tasks. 
+* In this branch we've added an API folder. This folder contains a docker compose file that will spin up the node server and create a postgres database where we'll store our to-do tasks. In order to use this method, you will need to add your LaunchDarkly SDK key to the `docker-compose.yml` file.  
 * If you would prefer not to use Docker, you can run the following bash script to create the postgres database locally. If you haven't installed postgres, you'll need to do that first before you can use this script: https://www.postgresql.org/download/
 ```
-add postgres bash script
+set -e
+
+createdb demo
+
+psql -v ON_ERROR_STOP=1 -U "$POSTGRES_USER" -d demo <<-EOSQL
+	\c demo;
+		CREATE TABLE todos (
+  		todo_id SERIAL PRIMARY KEY, 
+  		description VARCHAR(255)
+	);
+EOSQL
 ```
+Couple of notes for this method, you will need to specify the admin user as an environment variable using `export POSTGRES_USER='your_admin_username'`. Also, you will need to manually launch the node server. You can find the code for this in the `/api` directory. 
 * You also have the option to build your own database and/or API. If you choose this option, just make sure you set the server address to be listening on `localhost:5000/api`. Otherwise you will have to edit the code. 
