@@ -30,15 +30,17 @@ const pool = new Pool({
   password: 'postgres_password', //update accordingly 
   port: 5432
 });
+
+const apiFlag = await client.variation(
+    "apiFlag",
+    { key: "anonymous" },
+    false
+  );
+
+if (apiFlag) {
     
 //Routes
 app.post("/api", async(req, res) => {
-    const apiFlag = await client.variation(
-        "apiFlag",
-        { key: "anonymous" },
-        false
-      );
-    if (apiFlag){  
  try {
     const { description } = req.body;
     const newTodo = await pool.query("INSERT INTO todos (description) VALUES($1) RETURNING *",
@@ -48,20 +50,9 @@ app.post("/api", async(req, res) => {
  } catch (err) {
      console.error(err.message);
  }
-}
-else {
-    const err_message = 'bad connection';
-    return err_message;
-}
 });
 
 app.get("/api", async(req, res) => {
-    const apiFlag = await client.variation(
-        "apiFlag",
-        { key: "anonymous" },
-        false
-      );
-    if (apiFlag){  
     try {
         const allTodos = await pool.query("SELECT * FROM todos");
     res.json(allTodos.rows);
@@ -69,20 +60,9 @@ app.get("/api", async(req, res) => {
     catch (err) {
         console.error(err.message)
     }
-}
-else {
-    const err_message = 'bad connection';
-    return err_message;
-}
 });
 
 app.get("/api/:id", async (req, res) => {
-    const apiFlag = await client.variation(
-        "apiFlag",
-        { key: "anonymous" },
-        false
-      );
-    if (apiFlag){ 
     try {
        const { id } = req.params;
        const todo = await pool.query("SELECT * FROM todos WHERE todo_id = $1", [id])
@@ -92,19 +72,8 @@ app.get("/api/:id", async (req, res) => {
    } catch (err) {
        console.error(err.message)
    }
-}
-   else {
-    const err_message = 'bad connection';
-    return err_message;
-}
 });
 app.put("/api/:id", async (req, res) => {
-    const apiFlag = await client.variation(
-        "apiFlag",
-        { key: "anonymous" },
-        false
-      );
-    if (apiFlag){ 
     try {
         const { id } = req.params;
         const { description } = req.body;
@@ -115,20 +84,9 @@ app.put("/api/:id", async (req, res) => {
     } catch (err) {
         console.error(err.message)
     }
-}
-else {
-    const err_message = 'bad connection';
-    return err_message;
-}
 });
 
 app.delete("/api/:id", async (req, res) => {
-const apiFlag = await client.variation(
-        "apiFlag",
-        { key: "anonymous" },
-        false
-      );
-    if (apiFlag){ 
 try {
     const { id } = req.params;
     const deleteTodo = await pool.query ("DELETE FROM todos WHERE todo_id = $1", 
@@ -138,11 +96,21 @@ try {
 } catch (err) {
     console.error(err.message)
 }
+});
 }
 else {
-  throw Error('bad connection');
+    app.post("/wrong_value", async(req, res) => {
+        try {
+           const { description } = req.body;
+           const newTodo = await pool.query("INSERT INTO todos (description) VALUES($1) RETURNING *",
+           [description]
+           );
+          res.json(newTodo.rows[0]);
+        } catch (err) {
+            console.error(err.message);
+        }
+       });
 }
-});
 
 app.set("port", 5000)
 const server = http.createServer(app);
