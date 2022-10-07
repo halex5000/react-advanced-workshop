@@ -49,7 +49,7 @@ We've just scratched the surface about what feature flags can do for your applic
 ## Step 5: Getting familiar with server side flags 
 You likely noticed that when you enabled the new To Do list, that there wasn't a To Do list when you clicked on the link... This To-Do list relies on an API call to a postgres database for inputting our locations. To finish this final step, you will need to add a `boolean`flag called `apiFlag` to your LaunchDarkly dashboard and enable it. Depending on how comfortable you feel, you can follow a few different paths: 
 
-### Create the flag only:
+### Create the flag only
 In this branch we've added an API folder. This folder contains a Docker compose file that will spin up the node server and create a postgres database where we'll store our to-do tasks. This file is already coded to detect the value of a flag named `apiFlag` and will enable/disable the API based on the value of that flag. In order to use this method, you will need to add your LaunchDarkly SDK key to the `docker-compose.yml` file.
 
 ### Use our template 
@@ -69,5 +69,5 @@ EOSQL
 ```
 Couple of notes, you will need to specify the admin user as an environment variable using `export POSTGRES_USER='your_admin_username'` and you will need to manually launch the node server. Again, you can find the base code for the node server in the `index.js`file in the `/api` directory.
 
-### Build from scratch: 
+### Build from scratch 
 You also have the option to build your own database and/or API from the ground up. If you choose this option, just make sure you set the server to be running on Port 5000 and the routes resolve at `/api`. 
