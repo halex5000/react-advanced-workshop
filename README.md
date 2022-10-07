@@ -26,7 +26,7 @@ Before we dive into the code, we need to get our LaunchDarkly account configured
 Once you've completed these steps, we can move to the next. 
 
 ## Step 1: Initialize the React SDK <-- YOU ARE HERE
-Now that you've got LaunchDarkly set up, we need to initialize it in order to start using our flags. Go to the `main.jsx` file and add in the necessary code. We've given you some `TODO` fields with some hints. 
+Now that you've got LaunchDarkly set up, we need to initialize it in order to start using our flags. Go to the `main.jsx` file and add in the necessary code. We've given you some `TODO` fields with some hints. One key note, because we are using Vite to build this application, you have to name the variable for your Client Key `VITE_LD_CLIENT_KEY`. If you do not name it this, you will run into issues with future steps. 
 
 ## Step 2: Enable the login feature
 To get started with flags, we're going to add a simple `boolean` example. In the `components` folder, we have a file called `top-toolbar.jsx` this is for the top nav bar of our demo application. Inside this file, we have disabled the tool bar so it doesn't show on our application in its current state. You're task is to enable this feature by creating a flag called `toolBar` in LaunchDarkly and enabling it. For this step you will need to update the file to retrieve flag values from LaunchDarkly first.  
