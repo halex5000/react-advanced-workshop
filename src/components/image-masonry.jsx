@@ -94,8 +94,6 @@ const itemData = [
 export default function ImageMasonry() {
 	
 	const {newGallery, columns } = useFlags();
-	console.log(newGallery);
-	console.log(columns);
 
 	if (newGallery) {
 	return (
