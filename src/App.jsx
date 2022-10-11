@@ -61,7 +61,12 @@ function Toggler() {
 function MyApp() {	
 	const [userName, setUserName] = React.useState();
 	
-	//TODO: add code here in order to pass the username values to LaunchDarkly, did you remember to import the useLdClient function? 
+	/*TODO: add code here in order to pass the username values to LaunchDarkly, did you remember to import the useLdClient function?
+	If you need help, check the documentation on how we handle Hooks in LaunchDarkly: https://docs.launchdarkly.com/sdk/client-side/react/react-web/?q=ldclient+react#hooks
+	
+	Important notes: Remember that useLdClient is looking for the "key" not the "user" and remember that we only want to call the function if we have 
+	a username.
+	*/
 	
 	return (
 		<>
