@@ -1,5 +1,5 @@
 import * as React from 'react'; // eslint-disable-line unicorn/filename-case
-import { useEffect } from 'react';
+import {useEffect} from 'react';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -9,11 +9,9 @@ import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import CssBaseline from '@mui/material/CssBaseline';
 import {Container} from '@mui/material';
+import {useLDClient} from 'launchdarkly-react-client-sdk';
 import TopToolBar from './components/top-toolbar';
 import ImageMasonry from './components/image-masonry';
-import {useLDClient} from 'launchdarkly-react-client-sdk';
-
-
 
 const ColorModeContext = React.createContext({toggleColorMode() {}});
 
@@ -57,7 +55,7 @@ function Toggler() {
 	);
 }
 
-function MyApp() {	
+function MyApp() {
 	const [userName, setUserName] = React.useState();
 	const ldClient = useLDClient();
 
@@ -66,8 +64,8 @@ function MyApp() {
 			ldClient.identify({key: userName});
 			console.log(userName);
 		}
-	}, [userName])
-		
+	}, [userName]);
+
 	return (
 		<>
 			<TopToolBar userName={userName} setUserName={setUserName} />
@@ -76,15 +74,13 @@ function MyApp() {
 					width: '1',
 				}}
 			>
-			<ImageMasonry />
+				<ImageMasonry />
 			</Container>
-			<Container>
-			</Container>
+			<Container />
 			<Toggler />
 		</>
 	);
 }
-
 
 export default function ToggleColorMode() {
 	const [mode, setMode] = React.useState('light');
