@@ -6,7 +6,6 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import PropTypes from 'prop-types';
 
 export default function LoginPopover({anchorElement, handleClose, login}) {
 	const [temporaryUserName, setTemporaryUserName] = React.useState();
@@ -75,9 +74,3 @@ export default function LoginPopover({anchorElement, handleClose, login}) {
 		</PopupState>
 	);
 }
-
-LoginPopover.propTypes = {
-	anchorElement: PropTypes.node,
-	handleClose: PropTypes.func,
-	login: PropTypes.func,
-};
