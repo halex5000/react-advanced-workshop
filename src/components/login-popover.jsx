@@ -45,6 +45,11 @@ export default function LoginPopover({anchorElement, handleClose, login}) {
 								id="outlined-basic"
 								label="Username"
 								variant="outlined"
+								onKeyDownCapture={() => {
+									console.log('temporary user name:', temporaryUserName);
+									login(temporaryUserName);
+									handleClose();
+								}}
 								onChange={updateUsername}
 							/>
 						</Box>
