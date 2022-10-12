@@ -160,7 +160,7 @@ To finish this final step:
 
   - ### Use our template :hot_pepper::hot_pepper:
 
-    If you would prefer to try editing the server file to work with LaunchDarkly, we've include a base template in teh `/api` folder. You do not have to use Docker, instead you can run the following bash script to create the postgres database locally. If you haven't installed postgres, you'll need to do that first before you can use this script: https://www.postgresql.org/download/
+    If you would prefer to try editing the server file to work with LaunchDarkly, we've include a base template in the `/api` folder. You do not have to use Docker, instead you can run the following bash script to create the postgres database locally. If you haven't [installed postgres](https://www.postgresql.org/download/), you'll need to do that first before you can use this script.
 
     ```
     set -e
