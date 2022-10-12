@@ -17,11 +17,13 @@
     "@mui/lab": "^5.0.0-alpha.102",
     "@mui/material": "^5.10.8",
     "dotenv": "^16.0.3",
+    "eslint": "^8.24.0",
     "launchdarkly-react-client-sdk": "^2.27.0",
     "material-ui-popup-state": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.0",
+    "react-router-dom": "^6.4.1",
     "toaster": "^0.1.2"
   },
   "devDependencies": {
@@ -41,7 +43,8 @@
     "prettier": true,
     "rules": {
       "n/file-extension-in-import": "off",
-      "import/extensions": "off"
+      "import/extensions": "off",
+      "react/prop-types": "off"
     }
   }
 }

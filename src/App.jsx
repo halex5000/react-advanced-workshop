@@ -1,5 +1,5 @@
 import * as React from 'react'; // eslint-disable-line unicorn/filename-case
-import { useEffect } from 'react';
+import {useEffect} from 'react';
 import IconButton from '@mui/material/IconButton';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,10 +11,7 @@ import CssBaseline from '@mui/material/CssBaseline';
 import {Container} from '@mui/material';
 import TopToolBar from './components/top-toolbar';
 import ImageMasonry from './components/image-masonry';
-//don't forget to import your function
-
-
-
+// Don't forget to import your function
 
 const ColorModeContext = React.createContext({toggleColorMode() {}});
 
@@ -58,16 +55,16 @@ function Toggler() {
 	);
 }
 
-function MyApp() {	
+function MyApp() {
 	const [userName, setUserName] = React.useState();
-	
-	/*TODO: add code here in order to pass the username values to LaunchDarkly, did you remember to import the useLdClient function?
+
+	/* TODO: add code here in order to pass the username values to LaunchDarkly, did you remember to import the useLdClient function?
 	If you need help, check the documentation on how we handle Hooks in LaunchDarkly: https://docs.launchdarkly.com/sdk/client-side/react/react-web/?q=ldclient+react#hooks
 	
 	Important notes: Remember that useLdClient is looking for the "key" not the "user" and remember that we only want to call the function if we have 
 	a username.
 	*/
-	
+
 	return (
 		<>
 			<TopToolBar userName={userName} setUserName={setUserName} />
@@ -78,13 +75,11 @@ function MyApp() {
 			>
 				<ImageMasonry />
 			</Container>
-			<Container>
-			</Container>
+			<Container />
 			<Toggler />
 		</>
 	);
 }
-
 
 export default function ToggleColorMode() {
 	const [mode, setMode] = React.useState('light');

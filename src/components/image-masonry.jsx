@@ -8,7 +8,7 @@ import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 import ListSubheader from '@mui/material/ListSubheader';
 
-//Don't forget to import the right LaunchDarkly function
+// Don't forget to import the right LaunchDarkly function
 
 const Label = styled(Paper)(({theme}) => ({
 	backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -19,7 +19,6 @@ const Label = styled(Paper)(({theme}) => ({
 	borderBottomLeftRadius: 0,
 	borderBottomRightRadius: 0,
 }));
-
 
 const itemData = [
 	{
@@ -93,35 +92,39 @@ const itemData = [
 ];
 
 export default function ImageMasonry() {
-	
 	// TODO: you need to replace these default values with the correct flags.
-	let newGallery = false;
-	let columns = 5;
+	const newGallery = false;
+	const columns = 5;
 
 	if (newGallery) {
-	return (
-		<ImageList sx={{ width: 800, height: 450 }} variant ="quilted" cols ={columns} rowHeight={121}>
-			<ImageListItem key="Subheader" cols = {columns}>
-				<ListSubheader component="div"><h1>The New Image Gallery</h1></ListSubheader>
+		return (
+			<ImageList
+				sx={{width: 800, height: 450}}
+				variant="quilted"
+				cols={columns}
+				rowHeight={121}
+			>
+				<ImageListItem key="Subheader" cols={columns}>
+					<ListSubheader component="div">
+						<h1>The New Image Gallery</h1>
+					</ListSubheader>
 				</ImageListItem>
-  			{itemData.map((item, index) => (
-    		<ImageListItem key={item.img}>
-			<img
-				src={`${item.img}?w=162&auto=format`}
-				srcSet={`${item.img}?w=162&auto=format&dpr=2 2x`}
-				alt={item.title}
-				loading="lazy"
-			/>
-			<ImageListItemBar
-				title={item.title}
-			/>
-			</ImageListItem>
- 		 ))}
-		</ImageList>
+				{itemData.map((item) => (
+					<ImageListItem key={item.img}>
+						<img
+							src={`${item.img}?w=162&auto=format`}
+							srcSet={`${item.img}?w=162&auto=format&dpr=2 2x`}
+							alt={item.title}
+							loading="lazy"
+						/>
+						<ImageListItemBar title={item.title} />
+					</ImageListItem>
+				))}
+			</ImageList>
 		);
 	}
-	else {
-	return (	
+
+	return (
 		<Box sx={{width: 500, minHeight: 829}}>
 			<Masonry columns={3} spacing={2}>
 				{itemData.map((item, index) => (
@@ -144,5 +147,4 @@ export default function ImageMasonry() {
 			</Masonry>
 		</Box>
 	);
-	}
 }
