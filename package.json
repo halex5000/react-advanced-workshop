@@ -37,7 +37,8 @@
     "prettier": true,
     "rules": {
       "n/file-extension-in-import": "off",
-      "import/extensions": "off"
+      "import/extensions": "off",
+      "react/prop-types": "off"
     }
   }
 }
