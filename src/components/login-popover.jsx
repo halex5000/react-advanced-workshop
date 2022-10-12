@@ -21,7 +21,7 @@ export default function LoginPopover({anchorElement, handleClose, login}) {
 				<div>
 					<Popover
 						{...bindPopover(popupState)}
-						open={anchorElement}
+						open={Boolean(anchorElement)}
 						anchorEl={anchorElement}
 						anchorOrigin={{
 							vertical: 'bottom',
@@ -46,6 +46,16 @@ export default function LoginPopover({anchorElement, handleClose, login}) {
 								id="outlined-basic"
 								label="Username"
 								variant="outlined"
+								onKeyDownCapture={(event) => {
+									console.log(`Pressed keyCode ${event.key}`);
+									if (event.key === 'Enter') {
+										// Do code here
+										event.preventDefault();
+										console.log('temporary user name:', temporaryUserName);
+										login(temporaryUserName);
+										handleClose();
+									}
+								}}
 								onChange={updateUsername}
 							/>
 						</Box>
