@@ -8,8 +8,7 @@ import { asyncWithLDProvider } from 'launchdarkly-react-client-sdk';
 	const LDProvider = await asyncWithLDProvider({
 		clientSideID: import.meta.env.VITE_LD_CLIENT_KEY,  
 		user: {
-			"key": "anonymous",
-			"name": "John Doe"  
+			"key": "anonymous", 
 		}
 	})
 
