@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import {asyncWithLDProvider} from 'launchdarkly-react-client-sdk';
-import {BrowserRouter} from 'react-router-dom';
 import App from './App';
 import Paths from './components/routes';
 
@@ -10,7 +9,7 @@ import Paths from './components/routes';
 	const LDProvider = await asyncWithLDProvider({
 		clientSideID: import.meta.env.VITE_LD_CLIENT_KEY,
 		user: {
-			key: 'anonymous',
+			key: "anonymous",
 		},
 	});
 
