@@ -8,8 +8,7 @@ import App from './App';
 	const LDProvider = await asyncWithLDProvider({
 		clientSideID: import.meta.env.VITE_LD_CLIENT_KEY,
 		user: {
-			key: 'Peter',
-			name: 'Peter M',
+			key: 'anonymous',
 		},
 	});
 
